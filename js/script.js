@@ -34,14 +34,20 @@ const team = [
 const teamContainerHTML = document.querySelector('.team-container');
 
 for (let i=0; i<=team.length-1; i++){
-  const teamCard = document.createElement('div');
-  teamCard.classList.add('team-card');
-  teamContainerHTML.append(teamCard);
-  const imageContainer = document.createElement('div');
-  imageContainer.classList.add('card-image');
-  imageContainer.append('teamCard');
-  imageContainer.innerHTML=`<img src="${team[i][2]}" alt="${team[i][0]}"/>`
-  const textContainer = document.createElement('div');
-  textContainer.classList.add('card-text');
-  imageContainer.innerHTML=`<h3>${team[i][0]}</h3> <p>${team[i][1]}</p>`
+    // Creation card general container
+    const teamCard = document.createElement('div');
+    teamCard.className = 'team-card';
+    teamContainerHTML.append(teamCard);
+
+    // Creation img container + img
+    const imageContainer = document.createElement('div');
+    imageContainer.className = 'card-image';
+    teamCard.append(imageContainer);
+    imageContainer.innerHTML=`<img src="img/${team[i].image}" alt="${team[i].role}"/>`
+
+    // Creation description
+    const textContainer = document.createElement('div');
+    textContainer.className = 'card-text';
+    teamCard.append(textContainer);
+    textContainer.innerHTML=`<h3>${team[i].name}</h3> <p>${team[i].role}</p>`
 }
