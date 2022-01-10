@@ -51,3 +51,33 @@ for (let i=0; i<=team.length-1; i++){
     teamCard.append(textContainer);
     textContainer.innerHTML=`<h3>${team[i].name}</h3> <p>${team[i].role}</p>`
 }
+
+const addMemberButton = document.getElementById('addMemberButton');
+
+addMemberButton.addEventListener('click', function(){
+    team.push({
+        name: document.getElementById('name').value,
+        role: document.getElementById('role').value,
+        image: document.getElementById('image').value,
+    });
+    
+    for (let i=team.length-1; i<=team.length-1; i++){
+        // Creation card general container
+        const teamCard = document.createElement('div');
+        teamCard.className = 'team-card';
+        teamContainerHTML.append(teamCard);
+    
+        // Creation img container + img
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'card-image';
+        teamCard.append(imageContainer);
+        imageContainer.innerHTML=`<img src="img/${team[i].image}" alt="${team[i].role}"/>`
+    
+        // Creation description
+        const textContainer = document.createElement('div');
+        textContainer.className = 'card-text';
+        teamCard.append(textContainer);
+        textContainer.innerHTML=`<h3>${team[i].name}</h3> <p>${team[i].role}</p>`
+    }
+    
+});
