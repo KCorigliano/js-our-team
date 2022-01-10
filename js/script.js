@@ -71,7 +71,7 @@ addMemberButton.addEventListener('click', function(){
         const imageContainer = document.createElement('div');
         imageContainer.className = 'card-image';
         teamCard.append(imageContainer);
-        imageContainer.innerHTML=`<img src="img/${team[i].image}" alt="${team[i].role}"/>`
+        imageContainer.innerHTML=`<img src="${document.getElementById('image').value}"/>`
     
         // Creation description
         const textContainer = document.createElement('div');
